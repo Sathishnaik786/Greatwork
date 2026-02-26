@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUp, MessageCircle } from 'lucide-react';
+import { ArrowUp, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/layout/Footer';
@@ -68,19 +68,41 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Primary Global Contact Trigger (WhatsApp) */}
-      <div className="fixed bottom-10 right-8 z-[90]">
-        <div className="absolute inset-0 bg-emerald-500/50 rounded-full animate-ping" />
-        <motion.a
-          href="https://wa.me/qr/7QTLRCDFVZQHP1"
-          target="_blank"
-          rel="noreferrer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="relative w-14 h-14 rounded-full overflow-hidden flex flex-shrink-0 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] bg-transparent block"
-        >
-          <img src="/social.png" alt="WhatsApp" className="w-full h-full object-cover scale-[1.05]" />
-        </motion.a>
+      {/* Global Floating Action Buttons */}
+      <div className="fixed bottom-10 right-8 z-[90] flex flex-col gap-4 items-center">
+        {/* Phone Call Button */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-[#5A63F5]/50 rounded-full animate-ping" />
+          <motion.a
+            href="tel:+918367208436"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            title="Call Us"
+            className="relative w-12 h-12 rounded-full overflow-hidden flex flex-shrink-0 items-center justify-center shadow-[0_0_15px_rgba(90,99,245,0.4)] bg-[#5A63F5] text-white block"
+          >
+            <motion.div
+              animate={{ rotate: [0, -15, 15, -15, 15, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", repeatDelay: 1.2 }}
+            >
+              <Phone size={22} fill="currentColor" />
+            </motion.div>
+          </motion.a>
+        </div>
+
+        {/* WhatsApp Button */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-emerald-500/50 rounded-full animate-ping" />
+          <motion.a
+            href="https://wa.me/qr/7QTLRCDFVZQHP1"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="relative w-14 h-14 rounded-full overflow-hidden flex flex-shrink-0 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] bg-transparent block"
+          >
+            <img src="/social.png" alt="WhatsApp" className="w-full h-full object-cover scale-[1.05]" />
+          </motion.a>
+        </div>
       </div>
     </div>
   );

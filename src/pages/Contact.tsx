@@ -35,9 +35,12 @@ const Contact = () => {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#020617]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1E5EFF]/20 via-[#020617] to-transparent" />
-                <div className="container mx-auto px-6 relative z-10 text-center">
+            <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=2000" alt="Contact Us" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-[#020617]/70" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1E5EFF]/40 via-transparent to-[#22E6C3]/20 mix-blend-overlay" />
+
+                <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
                     <SectionTitle
                         subtitle="Contact Us"
                         title="Let’s Start Building Your Success Story"
@@ -132,15 +135,19 @@ const Contact = () => {
                                 <h5 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-slate-400">Social & Messaging</h5>
                                 <div className="flex flex-wrap gap-4">
                                     {[
-                                        { icon: <Instagram />, color: 'hover:bg-pink-500', link: 'https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv' },
-                                        { icon: <MessageCircle />, color: 'hover:bg-emerald-500', link: 'https://wa.me/qr/7QTLRCDFVZQHP1' },
-                                        { icon: <Facebook />, color: 'hover:bg-blue-600', link: 'https://www.facebook.com/Greatwork.Solutions' },
-                                        { icon: <Twitter />, color: 'hover:bg-sky-500', link: 'https://x.com/Greatwork_Sltns' },
-                                        { icon: <Mail />, color: 'hover:bg-blue-500', link: 'mailto:greatworksolutions.india@gmail.com' },
-                                        { icon: <Phone />, color: 'hover:bg-indigo-500', link: 'tel:+918367208436' },
+                                        { img: '/instagram.png', link: 'https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv', imgClass: "w-full h-full object-cover" },
+                                        { img: '/whatsup.png', link: 'https://wa.me/qr/7QTLRCDFVZQHP1', imgClass: "w-full h-full object-cover" },
+                                        { img: '/facebook.png', link: 'https://www.facebook.com/Greatwork.Solutions', imgClass: "w-full h-full object-cover" },
+                                        { img: '/twitter.png', link: 'https://x.com/Greatwork_Sltns', imgClass: "w-full h-full object-cover" },
+                                        { img: '/gmail.png', link: 'mailto:greatworksolutions.india@gmail.com', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
+                                        { phoneIcon: true, link: 'tel:+918367208436', wrapperClass: "bg-[#F4F4FB] text-[#5A63F5]" },
                                     ].map((s, i) => (
-                                        <a key={i} href={s.link} className={`w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 hover:text-white hover:scale-110 ${s.color}`}>
-                                            {s.icon}
+                                        <a key={i} href={s.link} className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden shadow-sm hover:scale-105 ${s.wrapperClass || 'bg-transparent'}`}>
+                                            {s.img ? (
+                                                <img src={s.img} alt="social" className={`${s.imgClass} hover:scale-110 transition-transform duration-300`} />
+                                            ) : (
+                                                <Phone size={24} strokeWidth={2} />
+                                            )}
                                         </a>
                                     ))}
                                 </div>

@@ -44,13 +44,16 @@ const Navbar = () => {
                         <NavLink
                             key={link.path}
                             to={link.path}
-                            className={({ isActive }) => `flex items-center h-full text-[12px] uppercase tracking-widest font-black transition-all relative group ${isActive ? 'text-[#1E5EFF]' : 'text-slate-500 hover:text-[#1E5EFF]'}`}
+                            className={`flex items-center h-full text-[12px] uppercase tracking-widest font-black transition-all group ${isScrolled
+                                    ? 'text-slate-600 hover:text-[#1E5EFF]'
+                                    : 'text-white hover:text-white/80'
+                                }`}
                         >
                             {({ isActive }) => (
-                                <>
-                                    <span>{link.label}</span>
-                                    <span className={`absolute -bottom-1.5 left-0 h-0.5 bg-[#1E5EFF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-                                </>
+                                <span className="relative inline-block">
+                                    {link.label}
+                                    <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-[2px] bg-[#1E5EFF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                                </span>
                             )}
                         </NavLink>
                     ))}

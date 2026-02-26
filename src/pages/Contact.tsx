@@ -48,44 +48,41 @@ const Contact = () => {
             </section>
 
             {/* Quick Connect Bar */}
-            <section className="py-20 bg-slate-50 border-b border-slate-100">
+            <section className="py-24 bg-slate-50/30">
                 <div className="container mx-auto px-6">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.4em] mb-12 text-center text-slate-400">Connect With Us Instantly</h3>
-                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <h3 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-12 text-center text-slate-400">Connect With Us Instantly</h3>
+                    <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
                         {/* WhatsApp */}
-                        <a href="https://wa.me/qr/7QTLRCDFVZQHP1" target="_blank" rel="noreferrer"
-                            className="group p-10 rounded-[48px] bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full group-hover:scale-110 transition-transform" />
-                            <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-8 shadow-sm group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500">
-                                <MessageCircle size={32} />
+                        <a href="https://wa.me/918367208436" target="_blank" rel="noreferrer"
+                            className="group p-10 lg:p-14 rounded-[40px] bg-white border border-slate-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-emerald-50/60 transition-colors duration-500" />
+                            <div className="relative z-10 w-16 h-16 flex items-center justify-center mb-6">
+                                <img src="/whatsup.png" alt="WhatsApp" className="w-14 h-14 object-contain drop-shadow-sm" />
                             </div>
-                            <h4 className="text-2xl font-black text-[#020617] mb-2">WhatsApp Chat</h4>
-                            <p className="text-slate-500 font-bold mb-6 tracking-wider">8367208436</p>
-                            <p className="text-sm text-slate-400 font-medium leading-relaxed">Get instant responses from our support team.</p>
+                            <h4 className="text-[22px] font-bold text-slate-900 mb-3 relative z-10 tracking-tight">WhatsApp Chat</h4>
+                            <p className="text-[13px] text-slate-500 font-medium leading-relaxed relative z-10 max-w-[200px]">Get instant responses from our support team.</p>
                         </a>
 
                         {/* Email */}
-                        <a href="mailto:workgreat76@gmail.com"
-                            className="group p-10 rounded-[48px] bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full group-hover:scale-110 transition-transform" />
-                            <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-8 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                                <Mail size={32} />
+                        <a href="mailto:greatworksolutions.india@gmail.com"
+                            className="group p-10 lg:p-14 rounded-[40px] bg-white border border-slate-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-slate-50/80 transition-colors duration-500" />
+                            <div className="relative z-10 w-16 h-16 flex items-center justify-center mb-6">
+                                <img src="/gmail.png" alt="Email" className="w-14 h-14 object-contain drop-shadow-sm" />
                             </div>
-                            <h4 className="text-2xl font-black text-[#020617] mb-2">Email Us</h4>
-                            <p className="text-slate-500 font-bold mb-6 tracking-wider">workgreat76@gmail.com</p>
-                            <p className="text-sm text-slate-400 font-medium leading-relaxed">Send us your project details anytime.</p>
+                            <h4 className="text-[22px] font-bold text-slate-900 mb-3 relative z-10 tracking-tight">Email Us</h4>
+                            <p className="text-[13px] text-slate-500 font-medium leading-relaxed relative z-10 max-w-[200px]">Send us your project details anytime.</p>
                         </a>
 
                         {/* Phone */}
                         <a href="tel:+918367208436"
-                            className="group p-10 rounded-[48px] bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-bl-full group-hover:scale-110 transition-transform" />
-                            <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-8 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
-                                <Phone size={32} />
+                            className="group p-10 lg:p-14 rounded-[40px] bg-white border border-slate-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-indigo-50/40 transition-colors duration-500" />
+                            <div className="relative z-10 w-14 h-14 rounded-[18px] bg-[#F4F4FB] text-[#5A63F5] flex items-center justify-center mb-7 mt-1 shadow-sm">
+                                <Phone size={24} strokeWidth={2} />
                             </div>
-                            <h4 className="text-2xl font-black text-[#020617] mb-2">Call Us</h4>
-                            <p className="text-slate-500 font-bold mb-6 tracking-wider">8367208436</p>
-                            <p className="text-sm text-slate-400 font-medium leading-relaxed">Speak directly with our consultants.</p>
+                            <h4 className="text-[22px] font-bold text-slate-900 mb-3 relative z-10 tracking-tight">Call Us</h4>
+                            <p className="text-[13px] text-slate-500 font-medium leading-relaxed relative z-10 max-w-[200px]">Speak directly with our consultants.</p>
                         </a>
                     </div>
                 </div>
@@ -118,7 +115,7 @@ const Contact = () => {
                                         <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 text-[#1E5EFF]"><Mail size={24} /></div>
                                         <div>
                                             <h5 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Support Email</h5>
-                                            <p className="text-xl font-bold text-[#1E5EFF]">workgreat76@gmail.com</p>
+                                            <p className="text-xl font-bold text-[#1E5EFF]">greatworksolutions.india@gmail.com</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6">
@@ -139,7 +136,7 @@ const Contact = () => {
                                         { icon: <MessageCircle />, color: 'hover:bg-emerald-500', link: 'https://wa.me/qr/7QTLRCDFVZQHP1' },
                                         { icon: <Facebook />, color: 'hover:bg-blue-600', link: 'https://www.facebook.com/Greatwork.Solutions' },
                                         { icon: <Twitter />, color: 'hover:bg-sky-500', link: 'https://x.com/Greatwork_Sltns' },
-                                        { icon: <Mail />, color: 'hover:bg-blue-500', link: 'mailto:workgreat76@gmail.com' },
+                                        { icon: <Mail />, color: 'hover:bg-blue-500', link: 'mailto:greatworksolutions.india@gmail.com' },
                                         { icon: <Phone />, color: 'hover:bg-indigo-500', link: 'tel:+918367208436' },
                                     ].map((s, i) => (
                                         <a key={i} href={s.link} className={`w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 hover:text-white hover:scale-110 ${s.color}`}>

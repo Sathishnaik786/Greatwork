@@ -61,7 +61,7 @@ export default function App() {
           <motion.button
             initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.5 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-28 right-8 w-12 h-12 bg-white text-[#020617] rounded-full flex items-center justify-center shadow-2xl z-[90] border border-slate-100"
+            className="fixed bottom-10 left-8 w-12 h-12 bg-white text-[#020617] rounded-full flex items-center justify-center shadow-2xl z-[90] border border-slate-100"
           >
             <ArrowUp size={20} />
           </motion.button>
@@ -69,16 +69,19 @@ export default function App() {
       </AnimatePresence>
 
       {/* Primary Global Contact Trigger (WhatsApp) */}
-      <motion.a
-        href="https://wa.me/qr/7QTLRCDFVZQHP1"
-        target="_blank"
-        rel="noreferrer"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-10 right-8 w-16 h-16 bg-emerald-500 text-white rounded-[24px] flex items-center justify-center shadow-2xl z-[90] ring-4 ring-white"
-      >
-        <MessageCircle size={28} />
-      </motion.a>
+      <div className="fixed bottom-10 right-8 z-[90]">
+        <div className="absolute inset-0 bg-emerald-500/50 rounded-full animate-ping" />
+        <motion.a
+          href="https://wa.me/qr/7QTLRCDFVZQHP1"
+          target="_blank"
+          rel="noreferrer"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="relative w-14 h-14 rounded-full overflow-hidden flex flex-shrink-0 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)] bg-transparent block"
+        >
+          <img src="/social.png" alt="WhatsApp" className="w-full h-full object-cover scale-[1.05]" />
+        </motion.a>
+      </div>
     </div>
   );
 }

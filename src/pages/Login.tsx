@@ -1,58 +1,27 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, LogIn, Loader2, ArrowRight, User, Phone, MapPin, UploadCloud, Briefcase, FileText, Check, Send, ArrowLeft } from 'lucide-react';
+import { Loader2, X, Check } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import FloatingInput from '../components/ui/FloatingInput';
 
 const Login = () => {
-    const [activeTab, setActiveTab] = useState<'login' | 'join'>('login');
-    const [joinStep, setJoinStep] = useState(1);
+    const [activeTab, setActiveTab] = useState<'login' | 'join'>('join');
     const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const navigate = useNavigate();
 
-    // Login Form State
-    const [loginData, setLoginData] = useState({
+    const [formData, setFormData] = useState({
+        name: '',
         email: '',
         password: ''
     });
 
-    // Join Form State
-    const [joinData, setJoinData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        category: '',
-        message: '',
-        resume: null as File | null
-    });
-
-    const categories = [
-        { id: 'fresher', label: 'Fresher', desc: 'Just starting' },
-        { id: 'freelancer', label: 'Freelancer', desc: 'Project-based' },
-        { id: 'layoff', label: 'Laid Off', desc: 'Immediate joiner' }
-    ];
-
-    const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setLoginData(prev => ({ ...prev, [name]: value }));
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleJoinChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setJoinData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setJoinData(prev => ({ ...prev, resume: e.target.files![0] }));
-        }
-    };
-
-    const handleLoginSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setFormState('loading');
-        // Simulate Login API
         setTimeout(() => {
             setFormState('success');
             setTimeout(() => {
@@ -61,322 +30,157 @@ const Login = () => {
         }, 1500);
     };
 
-    const handleJoinSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormState('loading');
-
-        // Simulate Processing
-        setTimeout(() => {
-            setFormState('success');
-        }, 1500);
-    };
-
-    const whatsappUrl = `https://wa.me/918367208436?text=${encodeURIComponent(`
-*New Join Team Application*
---------------------------------
-*Category:* ${categories.find(c => c.id === joinData.category)?.label || joinData.category}
-*Name:* ${joinData.name}
-*Email:* ${joinData.email}
-*Phone:* ${joinData.phone}
-*Location:* ${joinData.address}
-*Message:* ${joinData.message || 'N/A'}
-*Resume:* Pending (I will attach it in this chat)
---------------------------------
-Sent from Great Work Website`.trim())}`;
-
-    const nextStep = () => {
-        setJoinStep(prev => prev + 1);
-    };
-
-    const prevStep = () => {
-        setJoinStep(prev => prev - 1);
-    };
-
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen flex items-center justify-center p-6 bg-[#020617] relative overflow-hidden py-32">
-            {/* Background Effects */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#1E5EFF]/10 rounded-full blur-[160px] -mr-64 -mt-64 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#22E6C3]/10 rounded-full blur-[120px] -ml-40 -mb-40 pointer-events-none" />
+        <div className="min-h-screen bg-[#e8e9e9] flex flex-col items-center justify-center p-4 sm:p-8 relative overflow-hidden font-sans">
 
-            {/* Container is always max-w-md now */}
-            <div className="w-full relative z-10 transition-all duration-500 max-w-md">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="w-full max-w-[1200px] bg-[#f5efe6] rounded-[40px] shadow-2xl overflow-hidden flex relative min-h-[700px] mt-20 lg:mt-28 mb-4 lg:mb-8"
+            >
+                {/* Left Form Panel */}
+                <div className="w-full lg:w-1/2 p-8 sm:p-12 md:p-16 flex flex-col relative z-10">
 
-                <motion.div
-                    layout
-                    className="bg-white rounded-[40px] p-8 md:p-10 shadow-2xl relative overflow-hidden"
-                >
-                    <AnimatePresence mode="wait">
-                        {formState === 'success' ? (
-                            <motion.div
-                                key="success"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="text-center py-10"
-                            >
-                                <div className="w-20 h-20 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <Check size={40} />
-                                </div>
-                                <h3 className="text-2xl font-black text-[#020617] mb-2">
-                                    {activeTab === 'login' ? 'Login Successful!' : 'Application Ready!'}
-                                </h3>
-                                <p className="text-slate-500 font-medium mb-8">
-                                    {activeTab === 'login' ? 'Redirecting to your dashboard...' : 'Please click below to send your application details via WhatsApp.'}
+                    {/* Top Branding Pill */}
+                    <div className="mb-12">
+                        <Link to="/" className="inline-flex items-center gap-2 px-6 py-2 border border-slate-400 rounded-full text-slate-700 font-black tracking-tighter hover:bg-white transition-colors text-sm">
+                            <img src="/footer_logo.png" alt="Great Work" className="h-6 w-auto object-contain" />
+                            Great Work
+                        </Link>
+                    </div>
+
+                    {/* Central Form Content */}
+                    <div className="flex-grow flex flex-col justify-center max-w-sm mx-auto w-full">
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl font-normal text-slate-800 tracking-tight mb-2">
+                                {activeTab === 'login' ? 'Welcome back' : 'Create an account'}
+                            </h2>
+                            {activeTab === 'login' && (
+                                <p className="text-slate-500 text-sm">
+                                    Enter your details to sign in
                                 </p>
+                            )}
+                        </div>
 
-                                {activeTab === 'join' && (
-                                    <div className="flex flex-col gap-4">
-                                        <a
-                                            href={whatsappUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white rounded-2xl font-black uppercase tracking-widest hover:bg-[#20bd5a] transition-all shadow-lg hover:shadow-green-500/20"
-                                        >
-                                            Send Details <Send size={18} />
-                                        </a>
-                                        <p className="text-xs text-slate-400 max-w-[250px] mx-auto leading-relaxed">
-                                            <span className="font-bold text-[#020617]">Note:</span> Please manually attach and send your resume file in the WhatsApp chat.
-                                        </p>
+                        <AnimatePresence mode="wait">
+                            {formState === 'success' ? (
+                                <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-10">
+                                    <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <Check size={40} />
                                     </div>
-                                )}
-                            </motion.div>
-                        ) : activeTab === 'login' ? (
-                            <motion.form
-                                key="login-form"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 20 }}
-                                onSubmit={handleLoginSubmit}
-                                className="space-y-6"
-                            >
-                                <FloatingInput
-                                    label="Email Address"
-                                    name="email"
-                                    type="email"
-                                    required
-                                    icon={Mail}
-                                    value={loginData.email}
-                                    onChange={handleLoginChange}
-                                />
-                                <div className="space-y-2">
-                                    <FloatingInput
-                                        label="Password"
-                                        name="password"
-                                        type="password"
-                                        required
-                                        icon={Lock}
-                                        value={loginData.password}
-                                        onChange={handleLoginChange}
-                                    />
-                                    <div className="text-right">
-                                        <Link to="#" className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-[#1E5EFF] transition-colors">
-                                            Forgot Password?
-                                        </Link>
+                                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Success!</h3>
+                                    <p className="text-slate-500">Redirecting to your dashboard...</p>
+                                </motion.div>
+                            ) : (
+                                <motion.form
+                                    key={activeTab}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 20 }}
+                                    onSubmit={handleSubmit}
+                                    className="space-y-4"
+                                >
+                                    {activeTab === 'join' && (
+                                        <div>
+                                            <label className="block text-[11px] font-medium text-slate-500 mb-2 ml-4">Full name</label>
+                                            <input
+                                                type="text" name="name" required value={formData.name} onChange={handleChange}
+                                                className="w-full bg-white/60 focus:bg-white hover:bg-white/80 rounded-full px-6 py-4 text-sm font-medium outline-none transition-colors shadow-sm placeholder-slate-400"
+                                                placeholder="Enter your full Name"
+                                            />
+                                        </div>
+                                    )}
+
+                                    <div>
+                                        <label className="block text-[11px] font-medium text-slate-500 mb-2 ml-4">Email</label>
+                                        <input
+                                            type="email" name="email" required value={formData.email} onChange={handleChange}
+                                            className="w-full bg-white/60 focus:bg-white hover:bg-white/80 rounded-full px-6 py-4 text-sm font-medium outline-none transition-colors shadow-sm placeholder-slate-400"
+                                            placeholder="example@gmail.com"
+                                        />
                                     </div>
-                                </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={formState === 'loading'}
-                                    className="w-full py-5 bg-[#020617] text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-[#1E5EFF] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-4 group"
-                                >
-                                    {formState === 'loading' ? <Loader2 className="animate-spin" size={24} /> : <>Sign In <LogIn size={20} className="group-hover:translate-x-1 transition-transform" /></>}
-                                </button>
+                                    <div>
+                                        <label className="block text-[11px] font-medium text-slate-500 mb-2 ml-4">Password</label>
+                                        <input
+                                            type="password" name="password" required value={formData.password} onChange={handleChange}
+                                            className="w-full bg-white/60 focus:bg-white hover:bg-white/80 rounded-full px-6 py-4 text-sm font-medium outline-none transition-colors shadow-sm placeholder-slate-400"
+                                            placeholder="••••••••••••••••"
+                                        />
+                                    </div>
 
-                                <div className="relative flex py-5 items-center">
-                                    <div className="flex-grow border-t border-slate-100"></div>
-                                    <span className="flex-shrink-0 mx-4 text-slate-400 text-xs font-black uppercase tracking-widest">Or</span>
-                                    <div className="flex-grow border-t border-slate-100"></div>
-                                </div>
+                                    <button
+                                        type="submit"
+                                        disabled={formState === 'loading'}
+                                        className="w-full mt-8 py-4 bg-[#fbd468] text-slate-800 rounded-full font-semibold shadow-md hover:bg-[#ebd06b] transition-all flex items-center justify-center transform active:scale-95"
+                                    >
+                                        {formState === 'loading' ? <Loader2 className="animate-spin" size={20} /> : 'Submit'}
+                                    </button>
 
-                                <button
-                                    type="button"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setLoginData({ email: 'demo@greatwork.com', password: 'password123' });
-                                        setFormState('loading');
-                                        setTimeout(() => {
-                                            setFormState('success');
-                                            setTimeout(() => navigate('/profile'), 1000);
-                                        }, 1500);
-                                    }}
-                                    className="w-full py-5 bg-white border-2 border-slate-100 text-slate-600 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-slate-50 hover:border-slate-200 transition-all flex items-center justify-center gap-3"
-                                >
-                                    Demo Login <span className="px-2 py-0.5 bg-slate-100 text-[9px] rounded-md text-slate-400">One Click</span>
-                                </button>
-
-                                <div className="mt-8 text-center pt-8 border-t border-slate-100">
-                                    <p className="text-slate-500 font-medium text-sm">
-                                        Don't have an account?{' '}
-                                        <button
-                                            type="button"
-                                            onClick={() => { setActiveTab('join'); setJoinStep(1); }}
-                                            className="text-[#1E5EFF] font-black uppercase tracking-wider hover:underline"
-                                        >
-                                            Join Team
+                                    <div className="flex gap-4 mt-6">
+                                        <button type="button" className="flex-1 py-3 bg-transparent border border-slate-300 rounded-full flex items-center justify-center gap-3 hover:bg-white/50 transition-colors text-sm font-semibold text-slate-700 whitespace-nowrap overflow-hidden">
+                                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.79 3.59-.82 1.54-.03 2.75.56 3.51 1.62-3.01 1.76-2.52 5.56.35 6.74-.69 1.77-1.48 3.56-2.53 4.63zm-4.34-13.6c-.15-1.39.69-2.73 1.83-3.09 1.05-.28 2.05.51 2.28 1.76.28 1.5.06 2.62-1.63 3.09-1.28.32-2.31-.38-2.48-1.76z" /></svg>
+                                            Apple
                                         </button>
-                                    </p>
-                                </div>
-                            </motion.form>
-                        ) : (
-                            <motion.div
-                                key="join-form"
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                            >
-                                <form onSubmit={handleJoinSubmit} className="space-y-6">
-                                    {/* Step 1: Category Selection */}
-                                    {joinStep === 1 && (
-                                        <motion.div
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            className="space-y-6"
-                                        >
-                                            <div className="text-center mb-6">
-                                                <h3 className="text-xl font-black text-[#020617]">Select Your Category</h3>
-                                                <p className="text-slate-400 text-sm">Choose the best fit for you</p>
-                                            </div>
-                                            <div className="space-y-3">
-                                                {categories.map((cat) => (
-                                                    <label
-                                                        key={cat.id}
-                                                        className={`relative cursor-pointer p-4 rounded-2xl border-2 transition-all duration-300 flex items-center gap-4 group
-                                                        ${joinData.category === cat.id
-                                                                ? 'border-[#1E5EFF] bg-[#1E5EFF]/5'
-                                                                : 'border-slate-100 hover:border-slate-200 hover:bg-slate-50'}`}
-                                                    >
-                                                        <input
-                                                            type="radio"
-                                                            name="category"
-                                                            value={cat.id}
-                                                            checked={joinData.category === cat.id}
-                                                            onChange={handleJoinChange}
-                                                            className="absolute opacity-0 inset-0 cursor-pointer"
-                                                        />
-                                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${joinData.category === cat.id ? 'bg-[#1E5EFF] text-white' : 'bg-slate-100 text-slate-300'}`}>
-                                                            {joinData.category === cat.id ? <Check size={20} /> : <User size={20} />}
-                                                        </div>
-                                                        <div className="flex-grow">
-                                                            <span className={`font-black text-sm block transition-colors ${joinData.category === cat.id ? 'text-[#1E5EFF]' : 'text-slate-700'}`}>{cat.label}</span>
-                                                            <span className="text-xs text-slate-400">{cat.desc}</span>
-                                                        </div>
-                                                    </label>
-                                                ))}
-                                            </div>
-                                            <button
-                                                type="button"
-                                                onClick={nextStep}
-                                                disabled={!joinData.category}
-                                                className="w-full py-5 bg-[#020617] text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-[#1E5EFF] transition-all flex items-center justify-center gap-4 group disabled:opacity-50 disabled:cursor-not-allowed"
-                                            >
-                                                Next Step <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                            </button>
-                                        </motion.div>
-                                    )}
-
-                                    {/* Step 2: Details */}
-                                    {joinStep === 2 && (
-                                        <motion.div
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            className="space-y-6"
-                                        >
-                                            <div className="flex items-center gap-4 mb-6">
-                                                <button type="button" onClick={prevStep} className="p-2 rounded-full hover:bg-slate-50"><ArrowLeft size={20} /></button>
-                                                <h3 className="text-xl font-black text-[#020617]">Personal Details</h3>
-                                            </div>
-
-                                            <FloatingInput label="Full Name" name="name" required icon={User} value={joinData.name} onChange={handleJoinChange} />
-                                            <FloatingInput label="Email Address" name="email" type="email" required icon={Mail} value={joinData.email} onChange={handleJoinChange} />
-                                            <FloatingInput label="Phone Number" name="phone" required icon={Phone} value={joinData.phone} onChange={handleJoinChange} />
-
-                                            <button
-                                                type="button"
-                                                onClick={nextStep}
-                                                className="w-full py-5 bg-[#020617] text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-[#1E5EFF] transition-all flex items-center justify-center gap-4 group"
-                                            >
-                                                Next Step <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                            </button>
-                                        </motion.div>
-                                    )}
-
-                                    {/* Step 3: Final Info */}
-                                    {joinStep === 3 && (
-                                        <motion.div
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            className="space-y-6"
-                                        >
-                                            <div className="flex items-center gap-4 mb-6">
-                                                <button type="button" onClick={prevStep} className="p-2 rounded-full hover:bg-slate-50"><ArrowLeft size={20} /></button>
-                                                <h3 className="text-xl font-black text-[#020617]">Final Step</h3>
-                                            </div>
-
-                                            <FloatingInput label="City / Location" name="address" required icon={MapPin} value={joinData.address} onChange={handleJoinChange} />
-
-                                            <div className="relative group">
-                                                <textarea
-                                                    name="message"
-                                                    value={joinData.message}
-                                                    onChange={handleJoinChange}
-                                                    rows={3}
-                                                    placeholder="Tell us about yourself..."
-                                                    className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl p-6 outline-none transition-all duration-300 text-sm font-medium resize-none focus:border-[#1E5EFF] focus:bg-white focus:ring-4 focus:ring-[#1E5EFF]/5"
-                                                />
-                                            </div>
-
-                                            <div className={`relative border-2 border-dashed rounded-3xl p-6 text-center transition-all duration-300 cursor-pointer hover:border-[#1E5EFF]/50 ${joinData.resume ? 'border-[#1E5EFF] bg-[#1E5EFF]/5' : 'border-slate-200'}`}>
-                                                <input type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange} required className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
-                                                <div className="flex flex-col items-center gap-2">
-                                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${joinData.resume ? 'bg-[#1E5EFF] text-white' : 'bg-slate-50 text-slate-300'}`}>
-                                                        {joinData.resume ? <FileText size={18} /> : <UploadCloud size={18} />}
-                                                    </div>
-                                                    {joinData.resume ? (
-                                                        <div>
-                                                            <p className="font-bold text-[#020617] text-sm">{joinData.resume.name}</p>
-                                                            <p className="text-[9px] text-[#1E5EFF] font-black uppercase tracking-widest mt-1">Change File</p>
-                                                        </div>
-                                                    ) : (
-                                                        <div>
-                                                            <p className="font-bold text-slate-600 text-sm">Upload Resume</p>
-                                                            <p className="text-[10px] text-slate-400">PDF/DOCX Max 5MB</p>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </div>
-
-                                            <button
-                                                type="submit"
-                                                disabled={formState === 'loading'}
-                                                className="w-full py-5 bg-[#020617] text-white rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-[#1E5EFF] transition-all flex items-center justify-center gap-4 group"
-                                            >
-                                                {formState === 'loading' ? <Loader2 className="animate-spin" size={24} /> : <>Submit Application <Send size={20} className="group-hover:translate-x-1 transition-transform" /></>}
-                                            </button>
-                                        </motion.div>
-                                    )}
-
-                                    <div className="mt-8 text-center pt-8 border-t border-slate-100">
-                                        <p className="text-slate-500 font-medium text-sm">
-                                            Already have an account?{' '}
-                                            <button
-                                                type="button"
-                                                onClick={() => setActiveTab('login')}
-                                                className="text-[#1E5EFF] font-black uppercase tracking-wider hover:underline"
-                                            >
-                                                Login
-                                            </button>
-                                        </p>
+                                        <button type="button" className="flex-1 py-3 bg-transparent border border-slate-300 rounded-full flex items-center justify-center gap-3 hover:bg-white/50 transition-colors text-sm font-semibold text-slate-700 whitespace-nowrap overflow-hidden">
+                                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current text-blue-500"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" /></svg>
+                                            Google
+                                        </button>
                                     </div>
-                                </form>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </motion.div>
-            </div>
-        </motion.div>
+
+                                    <div className="mt-auto pt-16 pb-4 flex justify-between items-center text-[12px] font-medium text-slate-500 w-full">
+                                        <div>
+                                            {activeTab === 'login' ? "Don't have an account? " : "Have any account? "}
+                                            <button
+                                                type="button"
+                                                onClick={() => setActiveTab(activeTab === 'login' ? 'join' : 'login')}
+                                                className="text-slate-800 underline font-semibold focus:outline-none"
+                                            >
+                                                {activeTab === 'login' ? 'Sign up' : 'Sign in'}
+                                            </button>
+                                        </div>
+                                        <Link to="/terms" className="underline hover:text-slate-800 transition-colors">Terms & Conditions</Link>
+                                    </div>
+                                </motion.form>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                </div>
+
+                {/* Right Image Panel */}
+                <div className="hidden lg:flex w-1/2 p-4 flex-col relative z-20">
+                    <div className="w-full flex-1 bg-slate-200 rounded-[32px] overflow-hidden relative shadow-inner">
+                        <AnimatePresence mode="wait">
+                            <motion.img
+                                key={activeTab}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                                src={activeTab === 'join'
+                                    ? "https://media.istockphoto.com/id/2208190620/photo/professional-team-welcomes-new-colleague-in-a-casual-office-environment.jpg?s=612x612&w=0&k=20&c=yc3mQT1ohxTa6KfIswklFy_qaWE5yDrUWxP-_qiVObQ="
+                                    : "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1200"}
+                                alt="Team meeting"
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                        </AnimatePresence>
+
+                        <div className="absolute top-[140%] -translate-y-[140%] left-1/2 -translate-x-1/2 w-[80%] h-48 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-2xl">
+                            <div className="flex justify-between items-end border-b border-white/20 pb-4 mb-4">
+                                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d, i) => (
+                                    <div key={d} className="flex flex-col items-center gap-2">
+                                        <span className="text-xs text-white/80">{d}</span>
+                                        <span className={`text-lg font-bold ${i === 3 ? 'text-white' : 'text-white/60'}`}>{22 + i}</span>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="w-full h-full glass-pattern opacity-20" />
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
     );
 };
 

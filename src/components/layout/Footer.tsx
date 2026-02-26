@@ -6,7 +6,7 @@ const Footer = () => (
         <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
             <div>
                 <div className="flex items-center gap-4 mb-8">
-                    <img src="/logo.png" alt="Great Work" className="w-auto h-12 object-contain" />
+                    <img src="/footer_logo.png" alt="Great Work" className="w-auto h-12 object-contain" />
                     <span className="text-2xl font-black text-white tracking-tighter">Great Work</span>
                 </div>
                 <p className="text-sm font-medium leading-relaxed mb-8">Delivering premium digital solutions worldwide. 100% genuine work for global brands.</p>
@@ -32,19 +32,19 @@ const Footer = () => (
             <div>
                 <h4 className="text-white font-black text-xs uppercase tracking-widest mb-8">Contact Us</h4>
                 <p className="text-sm font-medium mb-4">📍 Hyderabad, India</p>
-                <p className="text-sm font-medium text-[#6EC1FF] mb-6">workgreat76@gmail.com</p>
+                <p className="text-sm font-medium text-[#6EC1FF] mb-6">greatworksolutions.india@gmail.com</p>
                 <div className="flex gap-4">
-                    <a href="https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-all text-white/60">
-                        <Instagram size={18} />
+                    <a href="https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
+                        <img src="/instagram.png" alt="Instagram" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
-                    <a href="https://wa.me/qr/7QTLRCDFVZQHP1" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white/60">
-                        <MessageCircle size={18} />
+                    <a href="https://wa.me/qr/7QTLRCDFVZQHP1" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
+                        <img src="/whatsup.png" alt="WhatsApp" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
-                    <a href="https://www.facebook.com/Greatwork.Solutions" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all text-white/60">
-                        <Facebook size={18} />
+                    <a href="https://www.facebook.com/Greatwork.Solutions" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
+                        <img src="/facebook.png" alt="Facebook" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
-                    <a href="https://x.com/Greatwork_Sltns" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-black hover:text-white transition-all text-white/60">
-                        <Twitter size={18} />
+                    <a href="https://x.com/Greatwork_Sltns" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
+                        <img src="/twitter.png" alt="Twitter" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
                 </div>
             </div>

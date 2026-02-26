@@ -20,16 +20,17 @@ const Navbar = () => {
     }, [location]);
 
     const navLinks = [
-        { label: 'Home', path: '/' },
+        { label: 'About Us', path: '/about' },
         { label: 'Services', path: '/services' },
         { label: 'Solutions', path: '/solutions' },
-        { label: 'About', path: '/about' },
+        { label: 'Contact Us', path: '/contact' },
     ];
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
-            <div className="container mx-auto px-6 flex justify-between items-center">
-                <Link to="/" className="cursor-pointer group">
+            <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-3 items-center">
+                {/* Logo - Left */}
+                <Link to="/" className="cursor-pointer group flex items-center justify-start">
                     <img
                         src="/logo.png"
                         alt="Great Work - 100% Genuine Work"
@@ -37,33 +38,37 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <div className="hidden lg:flex items-center gap-8">
-
+                {/* Central Navigation - Hidden on mobile */}
+                <div className="hidden lg:flex h-full items-center justify-center gap-8">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.path}
                             to={link.path}
-                            className={({ isActive }) => `text-[12px] uppercase tracking-widest font-black transition-all relative group ${isActive ? 'text-[#1E5EFF]' : 'text-slate-500 hover:text-[#1E5EFF]'}`}
+                            className={({ isActive }) => `flex items-center h-full text-[12px] uppercase tracking-widest font-black transition-all relative group ${isActive ? 'text-[#1E5EFF]' : 'text-slate-500 hover:text-[#1E5EFF]'}`}
                         >
                             {({ isActive }) => (
                                 <>
-                                    {link.label}
-                                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#1E5EFF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                                    <span>{link.label}</span>
+                                    <span className={`absolute -bottom-1.5 left-0 h-0.5 bg-[#1E5EFF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                                 </>
                             )}
                         </NavLink>
                     ))}
+                </div>
+
+                {/* Right Side Buttons - Hidden on mobile */}
+                <div className="hidden lg:flex items-center justify-end gap-4">
                     <Link
                         to="/contact"
                         className="px-6 py-3 bg-[#1E5EFF] text-white rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-[#020617] transition-all shadow-xl hover:scale-105 active:scale-95 btn-glow"
                     >
-                        Get Started
+                        For Clients
                     </Link>
                     <Link
                         to="/login"
                         className="px-6 py-3 bg-[#020617] text-white rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-[#1E5EFF] transition-all shadow-xl hover:scale-105 active:scale-95"
                     >
-                        Login / Join
+                        Join
                     </Link>
                 </div>
 
@@ -101,7 +106,7 @@ const Navbar = () => {
                             ))}
                             <hr className="border-white/10 my-4" />
                             <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#1E5EFF] text-white rounded-xl text-lg font-bold text-center">Contact Us</Link>
-                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#020617] border border-white/20 text-white rounded-xl text-lg font-bold text-center">Login / Join</Link>
+                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#020617] border border-white/20 text-white rounded-xl text-lg font-bold text-center">Join</Link>
                         </div>
                     </motion.div>
                 )}

@@ -29,7 +29,7 @@ const Navbar = () => {
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
-            <div className="container mx-auto px-4 lg:px-6 flex items-center justify-between">
+            <div className="container mx-auto px-4 lg:px-6 flex lg:grid lg:grid-cols-[auto_1fr_auto] items-center justify-between gap-4">
                 {/* Logo - Left */}
                 <Link to="/" className="cursor-pointer group flex items-center z-50">
                     <img
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Central Navigation - Hidden on mobile */}
-                <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-8">
+                <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 w-full">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.path}

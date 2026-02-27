@@ -20,6 +20,7 @@ const Navbar = () => {
     }, [location]);
 
     const navLinks = [
+        { label: 'Home', path: '/' },
         { label: 'About Us', path: '/about' },
         { label: 'Services', path: '/services' },
         { label: 'Solutions', path: '/solutions' },
@@ -45,8 +46,8 @@ const Navbar = () => {
                             key={link.path}
                             to={link.path}
                             className={`flex items-center h-full text-[12px] uppercase tracking-widest font-black transition-all group ${isScrolled
-                                    ? 'text-slate-600 hover:text-[#1E5EFF]'
-                                    : 'text-white hover:text-white/80'
+                                ? 'text-slate-600 hover:text-[#1E5EFF]'
+                                : 'text-white hover:text-white/80'
                                 }`}
                         >
                             {({ isActive }) => (
@@ -69,7 +70,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                         to="/login"
-                        className="px-6 py-3 bg-[#020617] text-white rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-[#1E5EFF] transition-all shadow-xl hover:scale-105 active:scale-95"
+                        className="px-6 py-3 bg-[#22E6C3] text-[#020617] rounded-lg text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,230,195,0.3)] active:scale-95"
                     >
                         Join
                     </Link>
@@ -109,7 +110,7 @@ const Navbar = () => {
                             ))}
                             <hr className="border-white/10 my-4" />
                             <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#1E5EFF] text-white rounded-xl text-lg font-bold text-center">Contact Us</Link>
-                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#020617] border border-white/20 text-white rounded-xl text-lg font-bold text-center">Join</Link>
+                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#22E6C3] text-[#020617] rounded-xl text-lg font-bold text-center shadow-[0_0_20px_rgba(34,230,195,0.3)]">Join</Link>
                         </div>
                     </motion.div>
                 )}

@@ -7,7 +7,7 @@ const Footer = () => (
             <div>
                 <div className="flex items-center gap-4 mb-8">
                     <img src="/footer_logo.png" alt="Great Work" className="w-auto h-12 object-contain" />
-                    <span className="text-2xl font-black text-white tracking-tighter">Great Work</span>
+                    <span className="text-2xl font-black text-[#1E5EFF] tracking-tighter">Great Work</span>
                 </div>
                 <p className="text-sm font-medium leading-relaxed mb-8">Delivering premium digital solutions worldwide. 100% genuine work for global brands.</p>
             </div>

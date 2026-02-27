@@ -29,29 +29,29 @@ const Navbar = () => {
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
-            <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-3 items-center">
+            <div className="container mx-auto px-4 lg:px-6 flex items-center justify-between">
                 {/* Logo - Left */}
-                <Link to="/" className="cursor-pointer group flex items-center justify-start">
+                <Link to="/" className="cursor-pointer group flex items-center z-50">
                     <img
                         src="/logo.png"
                         alt="Great Work - 100% Genuine Work"
-                        className="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                        className="h-14 md:h-16 lg:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
                 </Link>
 
                 {/* Central Navigation - Hidden on mobile */}
-                <div className="hidden lg:flex h-full items-center justify-center gap-8">
+                <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-8">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.path}
                             to={link.path}
-                            className={`flex items-center h-full text-[12px] uppercase tracking-widest font-black transition-all group ${isScrolled
+                            className={`flex items-center h-full text-[11px] xl:text-[12px] uppercase tracking-widest font-black transition-all group ${isScrolled
                                 ? 'text-slate-600 hover:text-[#1E5EFF]'
                                 : 'text-white hover:text-white/80'
                                 }`}
                         >
                             {({ isActive }) => (
-                                <span className="relative inline-block">
+                                <span className="relative inline-block whitespace-nowrap">
                                     {link.label}
                                     <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-[2px] bg-[#1E5EFF] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                                 </span>
@@ -61,23 +61,24 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side Buttons - Hidden on mobile */}
-                <div className="hidden lg:flex items-center justify-end gap-4">
+                <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-4">
                     <Link
                         to="/contact"
-                        className="px-6 py-3 bg-[#1E5EFF] text-white rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-[#020617] transition-all shadow-xl hover:scale-105 active:scale-95 btn-glow"
+                        className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#1E5EFF] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:bg-[#020617] transition-all shadow-xl hover:scale-105 active:scale-95 btn-glow whitespace-nowrap"
                     >
                         For Clients
                     </Link>
                     <Link
                         to="/login"
-                        className="px-6 py-3 bg-[#22E6C3] text-[#020617] rounded-lg text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,230,195,0.3)] active:scale-95"
+                        className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#22E6C3] text-[#020617] rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,230,195,0.3)] active:scale-95 whitespace-nowrap"
                     >
                         Join
                     </Link>
                 </div>
 
-                <button aria-label="Toggle mobile menu" className="lg:hidden p-2 text-[#1F2933] min-w-[44px] min-h-[44px] flex items-center justify-center" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                {/* Mobile Menu Toggle */}
+                <button aria-label="Toggle mobile menu" className="lg:hidden p-2 text-slate-800 min-w-[44px] min-h-[44px] flex items-center justify-center z-50 bg-white/50 backdrop-blur rounded-xl border border-white/20 shadow-sm" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
                 </button>
             </div>
 

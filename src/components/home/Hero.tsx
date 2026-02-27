@@ -38,15 +38,15 @@ const Hero = () => {
                     <p className="text-sm sm:text-base font-bold text-white/80 mb-8 lg:mb-12 max-w-xl tracking-wide border-l-4 border-[#22E6C3] pl-4">
                         Get Real Projects • Build Your Career •<span className="text-[#22E6C3]"> 100% Free for Job Seekers</span>
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-2 lg:mt-4">
-                        <div className="flex flex-col gap-3 w-full sm:w-auto">
-                            <Link to="/join" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-widest text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)]">
+                    <div className="flex flex-row gap-2 sm:gap-6 mt-4 lg:mt-6 w-full">
+                        <div className="flex flex-col gap-3 flex-1 sm:flex-none sm:w-auto">
+                            <Link to="/join" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] text-center leading-tight">
                                 For Job Seekers
                             </Link>
                         </div>
 
-                        <div className="flex flex-col gap-3 w-full sm:w-auto">
-                            <Link to="/contact" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-6 py-3.5 lg:px-8 lg:py-4 bg-[#1E5EFF] text-white rounded-lg font-black uppercase tracking-widest text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(30,94,255,0.3)]">
+                        <div className="flex flex-col gap-3 flex-1 sm:flex-none sm:w-auto">
+                            <Link to="/contact" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#1E5EFF] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(30,94,255,0.3)] text-center leading-tight">
                                 For Clients
                             </Link>
                         </div>

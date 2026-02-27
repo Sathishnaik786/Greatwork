@@ -52,15 +52,31 @@ const Login = () => {
 
                     {/* Central Form Content */}
                     <div className="flex-grow flex flex-col justify-center max-w-sm mx-auto w-full">
-                        <div className="text-center mb-10">
+                        <div className="flex bg-slate-100 p-1.5 rounded-full mb-8 relative">
+                            <button
+                                type="button"
+                                onClick={() => setActiveTab('login')}
+                                className={`flex-1 py-2.5 text-sm font-bold rounded-full transition-all z-10 ${activeTab === 'login' ? 'text-white' : 'text-slate-500 hover:text-slate-700'}`}
+                            >
+                                Sign In
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setActiveTab('join')}
+                                className={`flex-1 py-2.5 text-sm font-bold rounded-full transition-all z-10 ${activeTab === 'join' ? 'text-white' : 'text-slate-500 hover:text-slate-700'}`}
+                            >
+                                Sign Up
+                            </button>
+                            <div
+                                className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#2596be] rounded-full transition-all duration-300 ease-out shadow-md`}
+                                style={{ left: activeTab === 'login' ? '6px' : 'calc(50%)' }}
+                            />
+                        </div>
+
+                        <div className="text-center mb-8">
                             <h2 className="text-3xl font-normal text-slate-800 tracking-tight mb-2">
                                 {activeTab === 'login' ? 'Welcome back' : 'Create an account'}
                             </h2>
-                            {activeTab === 'login' && (
-                                <p className="text-slate-500 text-sm">
-                                    Enter your details to sign in
-                                </p>
-                            )}
                         </div>
 
                         <AnimatePresence mode="wait">
@@ -115,7 +131,7 @@ const Login = () => {
                                         disabled={formState === 'loading'}
                                         className="w-full mt-8 py-4 bg-[#2596be] text-white rounded-full font-bold shadow-lg shadow-[#2596be]/30 hover:bg-[#1a7394] transition-all flex items-center justify-center transform active:scale-95"
                                     >
-                                        {formState === 'loading' ? <Loader2 className="animate-spin" size={20} /> : 'Submit'}
+                                        {formState === 'loading' ? <Loader2 className="animate-spin" size={20} /> : (activeTab === 'login' ? 'Sign In' : 'Sign Up')}
                                     </button>
 
                                     <div className="flex gap-4 mt-6">
@@ -131,14 +147,7 @@ const Login = () => {
 
                                     <div className="mt-8 pt-12 pb-4 grid grid-cols-2 items-center text-[13px] sm:text-sm font-medium text-slate-500 w-full gap-4">
                                         <div className="text-left w-full">
-                                            <span>{activeTab === 'login' ? "Don't have an account? " : "Have an account? "}</span>
-                                            <button
-                                                type="button"
-                                                onClick={() => setActiveTab(activeTab === 'login' ? 'join' : 'login')}
-                                                className="text-[#2596be] underline font-bold focus:outline-none hover:text-[#1a7394] transition-colors"
-                                            >
-                                                {activeTab === 'login' ? 'Sign up' : 'Sign in'}
-                                            </button>
+                                            <Link to="/about" className="underline hover:text-slate-800 transition-colors whitespace-nowrap">Privacy Policy</Link>
                                         </div>
                                         <div className="text-right w-full">
                                             <Link to="/terms" className="underline hover:text-slate-800 transition-colors whitespace-nowrap">Terms & Conditions</Link>

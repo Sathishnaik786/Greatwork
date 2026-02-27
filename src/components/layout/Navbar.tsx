@@ -70,7 +70,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                         to="/login"
-                        className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#22E6C3] text-[#020617] rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,230,195,0.3)] active:scale-95 whitespace-nowrap"
+                        className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#2596be] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] active:scale-95 whitespace-nowrap"
                     >
                         Join
                     </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
                             ))}
                             <hr className="border-white/10 my-4" />
                             <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#1E5EFF] text-white rounded-xl text-lg font-bold text-center">Contact Us</Link>
-                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#22E6C3] text-[#020617] rounded-xl text-lg font-bold text-center shadow-[0_0_20px_rgba(34,230,195,0.3)]">Join</Link>
+                            <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="w-full py-5 bg-[#2596be] text-white rounded-xl text-lg font-bold text-center shadow-[0_0_20px_rgba(37,150,190,0.4)]">Join</Link>
                         </div>
                     </motion.div>
                 )}

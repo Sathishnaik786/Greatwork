@@ -40,7 +40,7 @@ const Hero = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-2 lg:mt-4">
                         <div className="flex flex-col gap-3 w-full sm:w-auto">
-                            <Link to="/join" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-6 py-3.5 lg:px-8 lg:py-4 bg-[#22E6C3] text-[#020617] rounded-lg font-black uppercase tracking-widest text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,230,195,0.3)]">
+                            <Link to="/join" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-widest text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)]">
                                 For Job Seekers
                             </Link>
                         </div>

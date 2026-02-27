@@ -60,7 +60,7 @@ const Contact = () => {
                             className="group p-10 lg:p-14 rounded-[40px] bg-white border border-slate-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
                             <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-emerald-50/60 transition-colors duration-500" />
                             <div className="relative z-10 w-16 h-16 flex items-center justify-center mb-6">
-                                <img src="/whatsup.png" alt="WhatsApp" className="w-14 h-14 object-contain drop-shadow-sm" />
+                                <img src="/social.png" alt="WhatsApp" className="w-14 h-14 object-contain drop-shadow-sm" />
                             </div>
                             <h4 className="text-[22px] font-bold text-slate-900 mb-3 relative z-10 tracking-tight">WhatsApp Chat</h4>
                             <p className="text-[13px] text-slate-500 font-medium leading-relaxed relative z-10 max-w-[200px]">Get instant responses from our support team.</p>
@@ -104,7 +104,7 @@ const Contact = () => {
                                         <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 text-[#1E5EFF]"><MapPin size={24} /></div>
                                         <div>
                                             <h5 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Office Address</h5>
-                                            <p className="text-xl font-bold text-[#020617] leading-relaxed">India Headquarters, Tech Valley Hub, Hyderabad</p>
+                                            <p className="text-xl font-bold text-[#020617] leading-relaxed">Hyderabad, India</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6">
@@ -136,7 +136,7 @@ const Contact = () => {
                                 <div className="flex flex-wrap gap-4">
                                     {[
                                         { img: '/instagram.png', link: 'https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv', imgClass: "w-full h-full object-cover" },
-                                        { img: '/whatsup.png', link: 'https://wa.me/qr/7QTLRCDFVZQHP1', imgClass: "w-full h-full object-cover" },
+                                        { img: '/social.png', link: 'https://wa.me/qr/7QTLRCDFVZQHP1', imgClass: "w-full h-full object-cover" },
                                         { img: '/facebook.png', link: 'https://www.facebook.com/Greatwork.Solutions', imgClass: "w-full h-full object-cover" },
                                         { img: '/twitter.png', link: 'https://x.com/Greatwork_Sltns', imgClass: "w-full h-full object-cover" },
                                         { img: '/gmail.png', link: 'mailto:greatworksolutions.india@gmail.com', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },

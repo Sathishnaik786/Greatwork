@@ -38,7 +38,7 @@ const Footer = () => (
                         <img src="/instagram.png" alt="Instagram" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
                     <a href="https://wa.me/qr/7QTLRCDFVZQHP1" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
-                        <img src="/whatsup.png" alt="WhatsApp" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
+                        <img src="/social.png" alt="WhatsApp" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />
                     </a>
                     <a href="https://www.facebook.com/Greatwork.Solutions" target="_blank" rel="noreferrer" className="relative w-10 h-10 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0 group">
                         <img src="/facebook.png" alt="Facebook" className="absolute inset-0 w-full h-full object-cover scale-[1.05] group-hover:scale-[1.15] transition-transform duration-300" />

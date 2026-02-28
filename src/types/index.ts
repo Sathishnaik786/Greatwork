@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type ServiceTheme = 'blue' | 'teal' | 'indigo' | 'rose' | 'amber' | 'emerald';
 
 export interface ServiceInfo {

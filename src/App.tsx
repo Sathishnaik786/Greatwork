@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUp, Phone } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
@@ -37,21 +37,20 @@ export default function App() {
       <Navbar />
       <main>
         <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:id" element={<ServiceDetail />} />
-            <Route path="/solutions" element={<Solutions />} />
-            {/* <Route path="/portfolio" element={<Portfolio />} /> */}
-            <Route path="/about" element={<About />} />
-            {/* <Route path="/blog" element={<Blog />} /> */}
-            {/* <Route path="/blog/:id" element={<BlogPost />} /> */}
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/join" element={<JobApplication />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<div className="pt-60 text-center font-black text-4xl uppercase text-slate-200">404 - Page Not Found</div>} />
-          </Routes>
+          <div key={location.pathname}>
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:id" element={<ServiceDetail />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/join" element={<JobApplication />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<div className="pt-60 text-center font-black text-4xl uppercase text-slate-200">404 - Page Not Found</div>} />
+            </Routes>
+          </div>
         </AnimatePresence>
       </main>
       <Footer />

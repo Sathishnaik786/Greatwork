@@ -26,10 +26,15 @@ const Contact = () => {
         e.preventDefault();
         setFormState('loading');
 
-        // Simulate API call
+        const message = `*New Client Inquiry* 🚀\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Company:* ${formData.company || 'N/A'}\n*Service Interested:* ${formData.service || 'Not specified'}\n*Budget:* ${formData.budget || 'Not specified'}\n*Message:* ${formData.details || 'N/A'}\n\n_Submitted via Greatwork Contact Form_`;
+        const whatsappUrl = `https://wa.me/918367208436?text=${encodeURIComponent(message)}`;
+
         setTimeout(() => {
             setFormState('success');
-        }, 2000);
+            setTimeout(() => {
+                window.location.href = whatsappUrl;
+            }, 1500);
+        }, 1000);
     };
 
     return (
@@ -168,7 +173,7 @@ const Contact = () => {
                                             <Check size={48} className="animate-bounce" />
                                         </div>
                                         <h2 className="text-5xl font-black mb-6">🎉 Thank You!</h2>
-                                        <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your message has been successfully sent.<br />Our team will contact you shortly.</p>
+                                        <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your message has been successfully generated.<br />Redirecting to WhatsApp to complete submission...</p>
                                         <Link
                                             to="/"
                                             className="px-12 py-5 bg-[#1E5EFF] text-white rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block"
@@ -210,7 +215,7 @@ const Contact = () => {
                                                         required
                                                         className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl pl-12 pr-10 py-5 outline-none appearance-none font-medium text-slate-800 hover:border-slate-200 focus:border-[#1E5EFF] transition-all"
                                                     >
-                                                        <option value="">Service Interested In*</option>
+                                                        <option value="" disabled hidden>Service Interested In*</option>
                                                         <option value="app">App Development</option>
                                                         <option value="web">Website Design</option>
                                                         <option value="marketing">Digital Marketing</option>
@@ -232,7 +237,7 @@ const Contact = () => {
                                                         onChange={handleInputChange}
                                                         className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl pl-12 pr-10 py-5 outline-none appearance-none font-medium text-slate-800 hover:border-slate-200 focus:border-[#1E5EFF] transition-all"
                                                     >
-                                                        <option value="">Estimated Budget (Optional)</option>
+                                                        <option value="" disabled hidden>Estimated Budget (Optional)</option>
                                                         <option value="low">Under ₹50,000</option>
                                                         <option value="mid">₹50,000 – ₹1,00,000</option>
                                                         <option value="high">₹1,00,000 – ₹5,00,000</option>

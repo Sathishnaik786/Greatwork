@@ -38,11 +38,16 @@ const JobApplication = () => {
         e.preventDefault();
         setFormState('loading');
 
-        // Simulate API upload
+        const categoryLabel = categories.find(c => c.id === formData.category)?.label || formData.category;
+        const message = `*New Job Application* 🎓\n\n*Applicant Type:* ${categoryLabel}\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Location:* ${formData.address}\n*Message:* ${formData.message || 'N/A'}\n\n*Note:* Applicant attached a resume (${formData.resume?.name || 'No file'}). Ask them to share it here.\n\n_Submitted via Greatwork Join Form_`;
+        const whatsappUrl = `https://wa.me/918367208436?text=${encodeURIComponent(message)}`;
+
         setTimeout(() => {
             setFormState('success');
-            console.log(formData);
-        }, 2000);
+            setTimeout(() => {
+                window.location.href = whatsappUrl;
+            }, 1500);
+        }, 1000);
     };
 
     return (
@@ -73,7 +78,7 @@ const JobApplication = () => {
                                     <Check size={48} className="animate-bounce" />
                                 </div>
                                 <h2 className="text-5xl font-black mb-6">Application Received!</h2>
-                                <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Thank you for your interest. <br /> Our HR team will review your profile and get back to you soon.</p>
+                                <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your application has been prepared.<br />Redirecting to WhatsApp to submit your details...</p>
                                 <Link
                                     to="/"
                                     className="px-12 py-5 bg-[#1E5EFF] text-white rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block"

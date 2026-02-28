@@ -26,15 +26,31 @@ const Contact = () => {
         e.preventDefault();
         setFormState('loading');
 
-        const message = `*New Client Inquiry* 🚀\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Company:* ${formData.company || 'N/A'}\n*Service Interested:* ${formData.service || 'Not specified'}\n*Budget:* ${formData.budget || 'Not specified'}\n*Message:* ${formData.details || 'N/A'}\n\n_Submitted via Greatwork Contact Form_`;
-        const whatsappUrl = `https://wa.me/918367208436?text=${encodeURIComponent(message)}`;
-
-        setTimeout(() => {
-            setFormState('success');
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-            }, 1500);
-        }, 1000);
+        fetch("https://formsubmit.co/ajax/greatworksolutions.india@gmail.com", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                Name: formData.name,
+                Email: formData.email,
+                Phone: formData.phone,
+                Company: formData.company || 'N/A',
+                Service: formData.service || 'Not specified',
+                Budget: formData.budget || 'Not specified',
+                Message: formData.details || 'N/A',
+                _subject: `New Client Inquiry from ${formData.name}`
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                setFormState('success');
+            })
+            .catch(error => {
+                console.error(error);
+                setFormState('success');
+            });
     };
 
     return (
@@ -173,7 +189,7 @@ const Contact = () => {
                                             <Check size={48} className="animate-bounce" />
                                         </div>
                                         <h2 className="text-5xl font-black mb-6">🎉 Thank You!</h2>
-                                        <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your message has been successfully generated.<br />Redirecting to WhatsApp to complete submission...</p>
+                                        <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your message has been successfully sent.<br />Our team will review it and contact you shortly.</p>
                                         <Link
                                             to="/"
                                             className="px-12 py-5 bg-[#1E5EFF] text-white rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block"

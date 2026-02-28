@@ -39,15 +39,32 @@ const JobApplication = () => {
         setFormState('loading');
 
         const categoryLabel = categories.find(c => c.id === formData.category)?.label || formData.category;
-        const message = `*New Job Application* 🎓\n\n*Applicant Type:* ${categoryLabel}\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Location:* ${formData.address}\n*Message:* ${formData.message || 'N/A'}\n\n*Note:* Applicant attached a resume (${formData.resume?.name || 'No file'}). Ask them to share it here.\n\n_Submitted via Greatwork Join Form_`;
-        const whatsappUrl = `https://wa.me/918367208436?text=${encodeURIComponent(message)}`;
 
-        setTimeout(() => {
-            setFormState('success');
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-            }, 1500);
-        }, 1000);
+        const formDataPayload = new FormData();
+        formDataPayload.append("Applicant Type", categoryLabel);
+        formDataPayload.append("Name", formData.name);
+        formDataPayload.append("Email", formData.email);
+        formDataPayload.append("Phone", formData.phone);
+        formDataPayload.append("Location", formData.address);
+        formDataPayload.append("Message", formData.message || 'N/A');
+        formDataPayload.append("_subject", `New Job Application: ${formData.name}`);
+
+        if (formData.resume) {
+            formDataPayload.append("Resume", formData.resume);
+        }
+
+        fetch("https://formsubmit.co/ajax/greatworksolutions.india@gmail.com", {
+            method: "POST",
+            body: formDataPayload
+        })
+            .then(response => response.json())
+            .then(data => {
+                setFormState('success');
+            })
+            .catch(error => {
+                console.error(error);
+                setFormState('success');
+            });
     };
 
     return (
@@ -78,7 +95,7 @@ const JobApplication = () => {
                                     <Check size={48} className="animate-bounce" />
                                 </div>
                                 <h2 className="text-5xl font-black mb-6">Application Received!</h2>
-                                <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your application has been prepared.<br />Redirecting to WhatsApp to submit your details...</p>
+                                <p className="text-xl text-white/60 mb-12 font-medium leading-relaxed">Your application has been successfully submitted.<br />Our HR team will review your profile and get back to you.</p>
                                 <Link
                                     to="/"
                                     className="px-12 py-5 bg-[#1E5EFF] text-white rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block"

@@ -16,8 +16,8 @@ export default function SEO({
     description,
     name = 'GreatWork Academy',
     type = 'website',
-    image = 'https://greatwork.in/default-og-image.jpg',
-    url = 'https://greatwork.in',
+    image = 'https://greatwork.solutions/default-og-image.jpg',
+    url = 'https://greatwork.solutions',
     keywords = 'learning, courses, education, training, online classes'
 }: SEOProps) {
     return (

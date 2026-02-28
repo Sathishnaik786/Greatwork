@@ -8,6 +8,10 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
+    // Determine if the current page has a light hero background at the top
+    const isLightHero = location.pathname === '/login' || location.pathname === '/profile' || (location.pathname.startsWith('/services/') && location.pathname !== '/services');
+    const useDarkText = isScrolled || isLightHero;
+
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
@@ -46,7 +50,7 @@ const Navbar = () => {
                             <NavLink
                                 key={link.path}
                                 to={link.path}
-                                className={`flex items-center h-full text-[11px] xl:text-[12px] uppercase tracking-widest font-black transition-all group ${isScrolled
+                                className={`flex items-center h-full text-[11px] xl:text-[12px] uppercase tracking-widest font-black transition-all group ${useDarkText
                                     ? 'text-slate-600 hover:text-[#1E5EFF]'
                                     : 'text-white hover:text-white/80'
                                     }`}
@@ -65,13 +69,13 @@ const Navbar = () => {
                     <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-4">
                         <Link
                             to="/contact"
-                            className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#1E5EFF] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:bg-[#020617] transition-all shadow-xl hover:scale-105 active:scale-95 btn-glow whitespace-nowrap"
+                            className="flex items-center justify-center px-4 xl:px-6 py-2.5 xl:py-3 bg-[#1E5EFF] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:bg-[#020617] transition-all shadow-xl hover:scale-105 active:scale-95 btn-glow whitespace-nowrap"
                         >
                             For Clients
                         </Link>
                         <Link
                             to="/login"
-                            className="px-4 xl:px-6 py-2.5 xl:py-3 bg-[#2596be] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] active:scale-95 whitespace-nowrap"
+                            className="flex items-center justify-center px-4 xl:px-6 py-2.5 xl:py-3 bg-[#2596be] text-white rounded-lg text-[10px] xl:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] active:scale-95 whitespace-nowrap"
                         >
                             Join
                         </Link>

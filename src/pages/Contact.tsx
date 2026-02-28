@@ -133,16 +133,16 @@ const Contact = () => {
 
                             <div>
                                 <h5 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-slate-400">Social & Messaging</h5>
-                                <div className="flex flex-wrap gap-4">
+                                <div className="flex gap-2 lg:gap-3 xl:gap-4 items-center">
                                     {[
-                                        { img: '/social_media/instagram.png', link: 'https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
-                                        { img: '/social_media/whatsapp(3).png', link: 'https://wa.me/qr/7QTLRCDFVZQHP1', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
-                                        { img: '/social_media/facebook.png', link: 'https://www.facebook.com/Greatwork.Solutions', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
-                                        { img: '/social_media/twitter.png', link: 'https://x.com/Greatwork_Sltns', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
-                                        { img: '/social_media/email.png', link: 'mailto:greatworksolutions.india@gmail.com', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
-                                        { img: '/social_media/phone-call.png', link: 'tel:+918367208436', wrapperClass: "bg-white border border-slate-100", imgClass: "w-10 h-10 object-contain" },
+                                        { img: '/social_media/instagram.png', link: 'https://www.instagram.com/greatwork.solutions?utm_source=qr&igsh=dWVraGE0cGh1dHhv', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
+                                        { img: '/social_media/whatsapp(3).png', link: 'https://wa.me/qr/7QTLRCDFVZQHP1', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
+                                        { img: '/social_media/facebook.png', link: 'https://www.facebook.com/Greatwork.Solutions', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
+                                        { img: '/social_media/twitter.png', link: 'https://x.com/Greatwork_Sltns', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
+                                        { img: '/social_media/email.png', link: 'mailto:greatworksolutions.india@gmail.com', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
+                                        { img: '/social_media/phone-call.png', link: 'tel:+918367208436', wrapperClass: "bg-white border border-slate-100", imgClass: "w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 object-contain" },
                                     ].map((s, i) => (
-                                        <a key={i} href={s.link} className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden shadow-sm hover:scale-105 ${s.wrapperClass || 'bg-transparent'}`}>
+                                        <a key={i} href={s.link} className={`relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex shrink-0 items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden shadow-sm hover:scale-105 ${s.wrapperClass || 'bg-transparent'}`}>
                                             {s.img ? (
                                                 <img src={s.img} alt="social" className={`${s.imgClass} hover:scale-110 transition-transform duration-300`} />
                                             ) : (

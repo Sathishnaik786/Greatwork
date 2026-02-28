@@ -25,7 +25,7 @@ const Login = () => {
         setTimeout(() => {
             setFormState('success');
             setTimeout(() => {
-                navigate('/profile');
+                navigate('/contact');
             }, 1000);
         }, 1500);
     };
@@ -86,7 +86,7 @@ const Login = () => {
                                         <Check size={40} />
                                     </div>
                                     <h3 className="text-2xl font-bold text-slate-800 mb-2">Success!</h3>
-                                    <p className="text-slate-500">Redirecting to your dashboard...</p>
+                                    <p className="text-slate-500">Redirecting to contact page...</p>
                                 </motion.div>
                             ) : (
                                 <motion.form

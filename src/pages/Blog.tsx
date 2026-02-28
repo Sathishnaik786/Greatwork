@@ -3,10 +3,16 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS } from '../data';
 import SectionTitle from '../components/ui/SectionTitle';
+import SEO from '../components/SEO';
 
 const Blog = () => {
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
+            <SEO
+                title="Blog"
+                description="Read the latest insights and expert perspectives from Great Work Academy on digital strategy, app design, and business growth."
+                keywords="blog, digital strategy, web development insights, marketing tips, tech news"
+            />
             <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#020617]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1E5EFF]/20 via-[#020617] to-transparent" />
                 <div className="container mx-auto px-6 relative z-10 text-center">
@@ -50,7 +56,7 @@ const Blog = () => {
                     </div>
                 </div>
             </section>
-        </motion.div>
+        </motion.main>
     );
 };
 

@@ -2,11 +2,17 @@ import { motion } from 'framer-motion';
 import { Check, CheckCircle2 } from 'lucide-react';
 import React from 'react';
 import SectionTitle from '../components/ui/SectionTitle';
+import SEO from '../components/SEO';
 import { ABOUT_STATS, VALUES, DIFFERENTIATORS, EXPERTISE } from '../data';
 
 const About = () => {
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white">
+            <SEO
+                title="About Us"
+                description="Learn more about Great Work Academy. We are a results-driven digital solutions company, committed to growth, performance, and transparency."
+                keywords="about greatwork academy, digital solutions company, web design agency, top app developers, digital marketing agency"
+            />
             {/* HERO SECTION */}
             <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000" alt="About Great Work" className="absolute inset-0 w-full h-full object-cover" />
@@ -191,7 +197,7 @@ const About = () => {
                     </div>
                 </div>
             </section>
-        </motion.div>
+        </motion.main>
     );
 };
 

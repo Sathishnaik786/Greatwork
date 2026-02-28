@@ -40,13 +40,13 @@ const Hero = () => {
                     </p>
                     <div className="flex flex-row gap-2 sm:gap-6 mt-4 lg:mt-6 w-full">
                         <div className="flex flex-col gap-3 flex-1 sm:flex-none sm:w-auto">
-                            <Link to="/join" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] text-center leading-tight">
+                            <Link to="/join" aria-label="Join Great Work as a Job Seeker" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] text-center leading-tight">
                                 For Job Seekers
                             </Link>
                         </div>
 
                         <div className="flex flex-col gap-3 flex-1 sm:flex-none sm:w-auto">
-                            <Link to="/contact" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#1E5EFF] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(30,94,255,0.3)] text-center leading-tight">
+                            <Link to="/contact" aria-label="Contact Great Work for your business needs" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#1E5EFF] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(30,94,255,0.3)] text-center leading-tight">
                                 For Clients
                             </Link>
                         </div>
@@ -55,7 +55,7 @@ const Hero = () => {
                 <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="lg:block hidden w-full max-w-2xl mx-auto">
                     <div className="animate-float">
                         <div className="glass rounded-[30px] xl:rounded-[50px] p-4 xl:p-6 border-white/10 shadow-2xl relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Dashboard" className="rounded-[20px] xl:rounded-[40px] opacity-80 w-full object-cover" fetchPriority="high" />
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Greatwork Business Dashboard and Analytics Interface illustrating growth" className="rounded-[20px] xl:rounded-[40px] opacity-80 w-full object-cover" fetchPriority="high" />
                         </div>
                     </div>
                 </motion.div>

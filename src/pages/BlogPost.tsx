@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { User, Calendar, Clock, CheckCircle2, X } from 'lucide-react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../data';
+import SEO from '../components/SEO';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -12,7 +13,13 @@ const BlogPost = () => {
     }
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen pt-32 pb-32">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen pt-32 pb-32">
+            <SEO
+                title={post.title}
+                description={post.excerpt}
+                image={post.img}
+                keywords={`${post.category}, blog, greatwork academy`}
+            />
             <div className="container mx-auto px-6 max-w-4xl">
                 <Link to="/blog" className="flex items-center gap-2 text-slate-400 font-bold mb-12 hover:text-[#1E5EFF] transition-colors w-fit">
                     <X size={20} /> Back to Insights
@@ -58,7 +65,7 @@ const BlogPost = () => {
                     </div>
                 </article>
             </div>
-        </motion.div>
+        </motion.main>
     );
 };
 

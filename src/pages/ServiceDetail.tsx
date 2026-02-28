@@ -3,6 +3,7 @@ import { X, Zap, CheckCircle2, Rocket, Monitor } from 'lucide-react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SERVICES_DATA } from '../data';
 import SectionTitle from '../components/ui/SectionTitle';
+import SEO from '../components/SEO';
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -13,7 +14,13 @@ const ServiceDetail = () => {
     }
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 pb-32 min-h-screen bg-white">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 pb-32 min-h-screen bg-white">
+            <SEO
+                title={service.title}
+                description={service.fullContent.substring(0, 160)}
+                image={service.image}
+                keywords={`${service.title}, digital services, greatwork academy`}
+            />
             <div className="container mx-auto px-6">
                 <Link to="/services" className="flex items-center gap-2 text-slate-400 font-bold mb-12 hover:text-[#1E5EFF] transition-colors w-fit">
                     <X size={20} /> Back to Services
@@ -74,7 +81,7 @@ const ServiceDetail = () => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </motion.main>
     );
 };
 

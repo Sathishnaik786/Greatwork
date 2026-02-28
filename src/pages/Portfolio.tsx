@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../components/ui/SectionTitle';
+import SEO from '../components/SEO';
 import { PORTFOLIO_PROJECTS } from '../data';
 
 const Portfolio = () => {
@@ -18,7 +19,12 @@ const Portfolio = () => {
         : PORTFOLIO_PROJECTS.filter(p => p.category === filter);
 
     return (
-        <div className="bg-white min-h-screen">
+        <main className="bg-white min-h-screen">
+            <SEO
+                title="Portfolio"
+                description="View Great Work Academy's portfolio of successful digital projects. See how we deliver excellence in web design, app development, and more."
+                keywords="portfolio, greatwork projects, web design portfolio, successful apps, digital excellence"
+            />
             <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#020617]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1E5EFF]/10 via-[#020617] to-transparent" />
                 <div className="container mx-auto px-6 relative z-10 text-center">
@@ -78,7 +84,7 @@ const Portfolio = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

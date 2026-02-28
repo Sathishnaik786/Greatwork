@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Loader2, X, Check } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Login = () => {
     const [activeTab, setActiveTab] = useState<'login' | 'join'>('join');
@@ -31,7 +32,12 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#F0F4F8] flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden font-sans">
+        <main className="min-h-screen bg-[#F0F4F8] flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden font-sans">
+            <SEO
+                title="Sign In / Sign Up"
+                description="Join Great Work Academy or sign in to your account. Access our digital solutions and seamless project management tools."
+                keywords="login, sign up, great work academy login, digital solutions account"
+            />
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -191,7 +197,7 @@ const Login = () => {
                     </div>
                 </div>
             </motion.div>
-        </div>
+        </main>
     );
 };
 

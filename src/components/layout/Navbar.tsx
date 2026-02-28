@@ -33,10 +33,10 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
+            <nav aria-label="Main Navigation" className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
                 <div className="container mx-auto px-4 lg:px-6 flex lg:grid lg:grid-cols-[auto_1fr_auto] items-center justify-between gap-4">
                     {/* Logo - Left */}
-                    <Link to="/" className="cursor-pointer group flex items-center z-50">
+                    <Link to="/" aria-label="Great Work Home Page" className="cursor-pointer group flex items-center z-50">
                         <img
                             src="/logo.png"
                             alt="Great Work - 100% Genuine Work"
@@ -45,7 +45,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* Central Navigation - Hidden on mobile */}
-                    <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 w-full">
+                    <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 w-full" aria-label="Desktop Navigation">
                         {navLinks.map((link) => (
                             <NavLink
                                 key={link.path}
@@ -82,7 +82,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu Toggle */}
-                    <button aria-label="Toggle mobile menu" className="lg:hidden p-2 text-slate-800 min-w-[44px] min-h-[44px] flex items-center justify-center z-50 bg-white/50 backdrop-blur rounded-xl border border-white/20 shadow-sm" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    <button aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"} className="lg:hidden p-2 text-slate-800 min-w-[44px] min-h-[44px] flex items-center justify-center z-50 bg-white/50 backdrop-blur rounded-xl border border-white/20 shadow-sm" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                         {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
                     </button>
                 </div>
@@ -96,6 +96,8 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         className="fixed inset-0 bg-[#020617] p-10 lg:hidden flex flex-col z-[9999]"
+                        aria-label="Mobile Navigation"
+                        role="dialog"
                     >
                         <div className="flex justify-between items-center mb-12">
                             <img

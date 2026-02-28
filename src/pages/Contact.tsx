@@ -4,6 +4,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 import FloatingInput from '../components/ui/FloatingInput';
 import { MessageCircle, Mail, Phone, MapPin, Clock, Share2, Check, User, Smartphone, Briefcase, Layout, DollarSign, MessageSquare, Send, Loader2, ChevronDown, Instagram, Facebook, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Contact = () => {
     const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -54,7 +55,12 @@ const Contact = () => {
     };
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
+        <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-white min-h-screen">
+            <SEO
+                title="Contact Us"
+                description="Get in touch with Great Work Academy. Reach out to our team of experts for inquiries, project consultations, and professional digital services."
+                keywords="contact us, reach great work, hire web developers, digital agency contact, greatwork academy support"
+            />
             {/* Hero Section */}
             <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=2000" alt="Contact Us" className="absolute inset-0 w-full h-full object-cover" />
@@ -308,7 +314,7 @@ const Contact = () => {
                     loading="lazy"
                 />
             </section>
-        </motion.div>
+        </motion.main>
     );
 };
 

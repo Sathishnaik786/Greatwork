@@ -68,7 +68,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Global Floating Action Buttons */}
-      <div className="fixed bottom-10 right-8 z-[90] flex flex-col gap-4 items-center">
+      <div className="fixed bottom-4 right-4 md:bottom-10 md:right-8 z-[90] flex flex-col gap-3 md:gap-4 items-center">
         {/* Phone Call Button */}
         <div className="relative">
           <div className="absolute inset-0 bg-[#5A63F5]/50 rounded-full animate-ping" />

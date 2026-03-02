@@ -12,7 +12,7 @@ const Hero = () => {
                         <span className="text-white/70 text-[10px] sm:text-[11px] font-black tracking-widest uppercase">Driving Business Growth</span>
                     </div>
                     <h1 className="text-[28px] sm:text-4xl lg:text-[38px] xl:text-[48px] font-black text-white leading-[1.1] mb-6 lg:mb-8 tracking-tighter">
-                        <span className="whitespace-nowrap">Greatwork - Connecting Talent</span> <br />
+                        Greatwork - Connecting Talent <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E5EFF] via-[#6EC1FF] to-[#22E6C3]">with Genuine Work</span>
                     </h1>
                     <ul className="flex flex-col gap-3 lg:gap-4 mb-6 lg:mb-8 max-w-xl text-white/80 text-sm sm:text-base lg:text-lg">

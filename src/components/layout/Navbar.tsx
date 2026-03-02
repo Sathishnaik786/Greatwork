@@ -33,7 +33,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav aria-label="Main Navigation" className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
+            <nav aria-label="Main Navigation" className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${useDarkText ? 'bg-white/95 backdrop-blur-xl shadow-xl py-3 md:py-4 border-b border-slate-100' : 'bg-transparent py-4 md:py-7'}`}>
                 <div className="container mx-auto px-4 lg:px-6 flex lg:grid lg:grid-cols-[auto_1fr_auto] items-center justify-between gap-4">
                     {/* Logo - Left */}
                     <Link to="/" aria-label="Great Work Home Page" className="cursor-pointer group flex items-center z-50">

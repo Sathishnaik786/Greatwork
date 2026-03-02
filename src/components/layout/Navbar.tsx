@@ -40,7 +40,7 @@ const Navbar = () => {
                         <img
                             src="/logo.png"
                             alt="Great Work - 100% Genuine Work"
-                            className="h-14 md:h-16 lg:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                            className="h-[58px] md:h-[68px] lg:h-[84px] w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                         />
                     </Link>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
                             <img
                                 src="/logo.png"
                                 alt="Great Work"
-                                className="h-16 w-auto object-contain"
+                                className="h-[68px] w-auto object-contain"
                             />
                             <button onClick={() => setMobileMenuOpen(false)} className="text-white"><X size={28} /></button>
                         </div>

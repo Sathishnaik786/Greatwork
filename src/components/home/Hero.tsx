@@ -11,8 +11,8 @@ const Hero = () => {
                         <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
                         <span className="text-white/70 text-[10px] sm:text-[11px] font-black tracking-widest uppercase">Driving Business Growth</span>
                     </div>
-                    <h1 className="text-[28px] sm:text-4xl lg:text-[38px] xl:text-[48px] font-black text-white leading-[1.1] mb-6 lg:mb-8 tracking-tighter">
-                        Greatwork - Connecting Talent <br />
+                    <h1 className="text-[28px] sm:text-4xl lg:text-[38px] xl:text-[48px] font-black text-white leading-[1.2] mb-6 lg:mb-8 tracking-tighter break-words">
+                        Greatwork - Connecting <br className="sm:hidden" /> Talent <br className="hidden sm:block" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E5EFF] via-[#6EC1FF] to-[#22E6C3]">with Genuine Work</span>
                     </h1>
                     <ul className="flex flex-col gap-3 lg:gap-4 mb-6 lg:mb-8 max-w-xl text-white/80 text-sm sm:text-base lg:text-lg">
@@ -38,7 +38,7 @@ const Hero = () => {
                     <p className="text-sm sm:text-base font-bold text-white/80 mb-8 lg:mb-12 max-w-xl tracking-wide border-l-4 border-[#22E6C3] pl-4">
                         Get Real Projects • Build Your Career •<span className="text-[#22E6C3]"> 100% Free for Job Seekers</span>
                     </p>
-                    <div className="flex flex-row gap-2 sm:gap-6 mt-4 lg:mt-6 w-full">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-4 lg:mt-6 w-full pb-8 sm:pb-0">
                         <div className="flex flex-col gap-3 flex-1 sm:flex-none sm:w-auto">
                             <Link to="/join" aria-label="Join Great Work as a Job Seeker" className="w-full sm:w-[220px] lg:w-[240px] inline-flex items-center justify-center px-2 sm:px-6 py-3.5 lg:px-8 lg:py-4 bg-[#2596be] text-white rounded-lg font-black uppercase tracking-wider md:tracking-widest text-[9.5px] sm:text-[10px] lg:text-[11px] hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,150,190,0.4)] text-center leading-tight">
                                 For Job Seekers

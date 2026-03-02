@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[100dvh] flex items-center pt-32 md:pt-40 pb-20 overflow-hidden bg-[#020617]">
+        <section className="relative min-h-[100dvh] flex items-center pt-16 sm:pt-24 md:pt-40 pb-20 overflow-hidden bg-[#020617]">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] bg-[#1E5EFF]/20 rounded-full blur-[120px] lg:blur-[160px] -mr-32 -mt-32 lg:-mr-64 lg:-mt-64" />
-            <div className="container mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mt-8 lg:mt-0">
+            <div className="container mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10">
                 <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6 lg:mb-8 mt-4 lg:mt-0">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-5 sm:mb-8 lg:mb-12">
                         <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
                         <span className="text-white/70 text-[10px] sm:text-[11px] font-black tracking-widest uppercase">Driving Business Growth</span>
                     </div>
-                    <h1 className="text-[28px] sm:text-4xl lg:text-[38px] xl:text-[48px] font-black text-white leading-[1.2] mb-6 lg:mb-8 tracking-tighter break-words">
-                        Greatwork - Connecting <br className="sm:hidden" /> Talent <br className="hidden sm:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E5EFF] via-[#6EC1FF] to-[#22E6C3]">with Genuine Work</span>
+                    <h1 className="text-[17px] min-[360px]:text-[19px] min-[390px]:text-[21px] sm:text-4xl lg:text-[40px] xl:text-[48px] font-black text-white leading-[1.2] mb-6 lg:mb-8 tracking-tighter w-fit">
+                        <span className="block whitespace-nowrap">Greatwork - Connecting Talent</span>
+                        <span className="flex w-full justify-between text-transparent bg-clip-text bg-gradient-to-r from-[#1E5EFF] via-[#6EC1FF] to-[#22E6C3]">
+                            <span>with</span>
+                            <span>Genuine</span>
+                            <span>Work</span>
+                        </span>
                     </h1>
                     <ul className="flex flex-col gap-3 lg:gap-4 mb-6 lg:mb-8 max-w-xl text-white/80 text-sm sm:text-base lg:text-lg">
                         <li className="flex items-start gap-3 font-medium tracking-wide">
